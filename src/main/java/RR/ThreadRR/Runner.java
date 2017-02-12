@@ -17,6 +17,6 @@ public class Runner {
 		for(int i=0; i<10; i++){
 			threads[i].start();
 		}
-		System.out.println("Try this");
+		System.out.println("Try that");
 }
 }
