@@ -1,33 +1,40 @@
 package RR.ThreadRR;
 
-import java.util.*;
+import java.util.Scanner;
 
-public class MyRun2 implements Runnable {
+//klasa implementujaca interface runnable czyli dajaca sie uzyc 
+//jako argument w konstruktorze watku
+class MyRun2 implements Runnable {
 
 	private int id;
-
+//konstruktor klasy
 	public MyRun2(int id) {
 		this.id = id;
 	}
-
+//metoda odpalana w watku
 	public void run() {
+		System.out.println("Wpisales dobre haslo i zaczales nowy watek!");
+		/*
+		 * while (true) { System.out.println("Watek " + id); try {
+		 * Thread.sleep(1000); } catch (InterruptedException e) {
+		 * e.printStackTrace(); } }
+		 */
+		try {
+			wait(1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		System.out.println("Szybko podaj haslo zanim wrocimy do pierwszego watku!");
+
 		Scanner skaner = new Scanner(System.in);
 		System.out.println("Podaj haslo:");
-		for (int i = 0; i < 3; i++) {
-			String haslo = skaner.nextLine();
-			if (haslo.equals("stop")) {
+		String haslo = skaner.nextLine();
 
-				System.out.println("zatrzymano petle");
-				i = 3;
-				
-				Facade F2 = new Facade();
-				F2.startThr1();
-			} else {
-				System.out.println("oto twoj wynik: " + haslo);
-				System.out.println("Sproboj jeszcze raz");
-			}
+		try {
+			wait(1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
 		}
-
+		System.out.println(" Wpidales jakies bzdury: " + haslo);
 	}
-
 }
