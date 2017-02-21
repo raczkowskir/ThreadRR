@@ -6,7 +6,7 @@ public class W1 extends Toll {
 	public void run() {
 		for (int i = 0; i < 10; i++) {
 			System.out.print("1");
-			mySleep(200);
+			mySleep(100);
 		}
 		System.out.println("\nKoniec watku 1.");
 	}

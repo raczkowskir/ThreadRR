@@ -6,14 +6,9 @@ public class W2 extends Toll {
 	public void run() {
 		for (int i = 0; i < 10; i++) {
 			System.out.print("2");
-			try {
-				wait(200);
-			} catch (InterruptedException e) {
-
-				e.printStackTrace();
-			}
+			mySleep(100);
 		}
-
+		System.out.println("\nKoniec watku 2.");
 	}
 
 }
