@@ -17,7 +17,7 @@ public class W0 extends Toll {
 		}
 
 		}
-		System.out.println("\nKoniec watku 0.");
+	
 	}
 
 }
