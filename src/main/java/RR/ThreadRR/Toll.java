@@ -5,7 +5,7 @@ public abstract class Toll implements Runnable {
 	// prywatne statyczne pole - dzieki czemu mozna sie do niego dostac jedynie
 	// przez Toll.getMyNumber(n);
 	private static int myNumber = 0;
-
+	public static int wynik =0;
 	// statyczna metoda zwracająca wartość prywatnego pola myNumber - jest
 	// zsynchronizowana, dzieki czemu tylko jeden watek na raz moze z niej
 	// korzystac (blokuje monitor)

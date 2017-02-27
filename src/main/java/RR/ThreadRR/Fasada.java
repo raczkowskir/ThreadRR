@@ -20,20 +20,24 @@ public class Fasada extends Thread {
 	Thread T2 = new Thread(R2);
 
 	public void go() throws InterruptedException {
-		System.out.println("1 "+ T0.isAlive());
-	
+//		System.out.println("1 "+ T0.isAlive());
+		System.out.println("1 "+ T0.getId()+" "+T0.getState());
 		T0.start();
 		// uzycie join sprawilo ze watek najpierw wykonal sie caly a dopiero
 		// potem oddal procesor nastepnemu watkowi
 		
-		System.out.println("1 "+ T0.isAlive());
-		System.out.println("Fasada "+Thread.currentThread().getName()+" " + Thread.currentThread().isAlive());
-		T0.join();
-		System.out.println("2 "+ T0.isAlive());
+		System.out.println("1 "+ T0.getId()+" "+T0.getState());
+		//T0.sleep(3000);
+		T0.setPriority(9);
+		
+		System.out.println("1 "+ T0.toString());
+
+		//T0.join();
+
 		T1.start();
-		System.out.println("3 "+ T0.isAlive());
-		T1.join();
-		System.out.println("4 "+ T0.isAlive());
+		T1.setPriority(1);
+		//T1.join();
+
 		// ustawienie watku jako Demona sprawilo ze zostal on zakonczony zaraz
 		// po rozpoczeciu
 		try {
@@ -41,15 +45,17 @@ public class Fasada extends Thread {
 		} catch (IllegalThreadStateException e) {
 			System.out.println("Demon namieszal.");
 		}
-
+		T2.setPriority(1);
 		T2.start();
-		System.out.println("5 "+ T0.isAlive());
-		// sprawdzic metode - yield
-		Thread.currentThread();
+	//	Thread.currentThread();
 		System.out.println("Method Thread.currentThread(): " + Thread.activeCount());
 
-		System.out.println("\nKoniec watku 0.");
-		System.out.println("6 "+ T0.isAlive());
+		
+//		System.out.println("6 "+ T0.isAlive());
+		
+		System.out.println("1 "+ T0.toString());
+		System.out.println("2 "+ T1.toString());
+		System.out.println("3 "+ T2.toString());
 		// System.out.println("Method Thread.currentThread():
 		// "+Thread.checkAccess());
 
@@ -71,5 +77,6 @@ public class Fasada extends Thread {
 		 * System.out.println("hashCode k1: "+
 		 * k1.hashCode()+" hashCode k2: "+k2.hashCode());
 		 */
+
 	}
 }

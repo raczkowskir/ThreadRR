@@ -11,14 +11,14 @@ public class W2 extends Toll {
 			System.out.print("c" + Toll.getMyNumber(2));
 
 			licznik =i;
-			if (licznik==9){
+			/*if (licznik==9){
 				System.out.println("\n");
 				mySleep(100);
-		}
+		}*/
 		
 		}
 		System.out.println("\nKoniec watku 2.");
-		System.out.println("W2 "+Thread.currentThread().getName()+" " + Thread.currentThread().isAlive());
+		
 	}
 
 }
