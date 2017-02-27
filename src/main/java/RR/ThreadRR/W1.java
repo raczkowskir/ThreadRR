@@ -17,6 +17,7 @@ public class W1 extends Toll {
 		
 		}
 		System.out.println("\nKoniec watku 1.");
+		System.out.println("W1 "+Thread.currentThread().getName()+" " + Thread.currentThread().isAlive());
 	}
 
 }

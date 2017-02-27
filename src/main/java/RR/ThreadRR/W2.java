@@ -4,6 +4,7 @@ public class W2 extends Toll {
 	int licznik =0;
 	@Override
 	public void run() {
+		Thread.currentThread().setName("Ostani Watek");
 		// Toll.setMyNumber(2);
 		for (int i = 0; i < 10; i++) {
 			//uzywamy statycznej metody klasy Toll zeby  zwrocic wartosc pola tej klasy		
@@ -17,6 +18,7 @@ public class W2 extends Toll {
 		
 		}
 		System.out.println("\nKoniec watku 2.");
+		System.out.println("W2 "+Thread.currentThread().getName()+" " + Thread.currentThread().isAlive());
 	}
 
 }

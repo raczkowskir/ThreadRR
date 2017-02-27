@@ -15,9 +15,9 @@ public class W0 extends Toll {
 			System.out.println("\n");
 			mySleep(100);
 		}
-
+		
 		}
-	
+		System.out.println("W0 "+Thread.currentThread().getName()+" " + Thread.currentThread().isAlive());
 	}
 
 }
