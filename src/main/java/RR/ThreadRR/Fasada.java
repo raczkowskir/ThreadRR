@@ -18,8 +18,23 @@ public class Fasada extends Thread {
 	Thread T0 = new Thread(R0);
 	Thread T1 = new Thread(R1);
 	Thread T2 = new Thread(R2);
+	
+	
+	
+	//try to adjust it!!!!!!!!!!!!!
+	synchronized void myWait(){
+		
+		System.out.println();
+		try{
+			T0.wait();
+			}
+			catch(InterruptedException E){
+				System.out.println("cos sie zadzialo "+E.hashCode());
+			}
+	}
+	
 
-	public void go() throws InterruptedException {
+	public void go() throws InterruptedException, IllegalMonitorStateException{
 //		System.out.println("1 "+ T0.isAlive());
 		System.out.println("1 "+ T0.getId()+" "+T0.getState());
 		T0.start();
@@ -28,16 +43,18 @@ public class Fasada extends Thread {
 		
 		System.out.println("1 "+ T0.getId()+" "+T0.getState());
 		//T0.sleep(3000);
-		T0.setPriority(9);
+		T0.setPriority(1);
 		
 		System.out.println("1 "+ T0.toString());
 
 		//T0.join();
 
 		T1.start();
-		T1.setPriority(1);
+		T1.setPriority(10);
 		//T1.join();
-
+		
+		
+	//	T1.interrupt();
 		// ustawienie watku jako Demona sprawilo ze zostal on zakonczony zaraz
 		// po rozpoczeciu
 		try {
@@ -45,7 +62,7 @@ public class Fasada extends Thread {
 		} catch (IllegalThreadStateException e) {
 			System.out.println("Demon namieszal.");
 		}
-		T2.setPriority(1);
+		T2.setPriority(10);
 		T2.start();
 	//	Thread.currentThread();
 		System.out.println("Method Thread.currentThread(): " + Thread.activeCount());

@@ -6,7 +6,7 @@ public class W0 extends Toll {
 	@Override
 	public void run() {
 		// Toll.setMyNumber(0);
-		for (int i = 0; i < 10; i++) {
+		for (int i = 0; i < 20; i++) {
 			Thread.currentThread().yield();
 //uzywamy statycznej metody klasy Toll zeby  zwrocic wartosc pola tej klasy		
 			System.out.print("a" + Toll.getMyNumber(0));
@@ -16,6 +16,7 @@ public class W0 extends Toll {
 			System.out.println("\n");
 			mySleep(100);
 		}*/
+		
 		
 		}
 		System.out.println("\nKoniec watku 0.");

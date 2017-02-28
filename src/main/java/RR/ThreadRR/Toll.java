@@ -46,6 +46,13 @@ public abstract class Toll implements Runnable {
 			e.printStackTrace();
 		}
 	}
+	public void myWait(){
+		
+		Thread.currentThread();
+		
+		
+	}
+	
 
 	@Override
 	public abstract void run();

@@ -6,7 +6,7 @@ public class W2 extends Toll {
 	public void run() {
 		Thread.currentThread().setName("Ostani Watek");
 		// Toll.setMyNumber(2);
-		for (int i = 0; i < 10; i++) {
+		for (int i = 0; i < 20; i++) {
 			//uzywamy statycznej metody klasy Toll zeby  zwrocic wartosc pola tej klasy		
 			System.out.print("c" + Toll.getMyNumber(2));
 
