@@ -35,9 +35,13 @@ public class Fasada extends Thread {
 	
 
 	public void go() throws InterruptedException, IllegalMonitorStateException{
+		
+		
 //		System.out.println("1 "+ T0.isAlive());
 		System.out.println("1 "+ T0.getId()+" "+T0.getState());
+		
 		T0.start();
+		
 		// uzycie join sprawilo ze watek najpierw wykonal sie caly a dopiero
 		// potem oddal procesor nastepnemu watkowi
 		
@@ -48,10 +52,11 @@ public class Fasada extends Thread {
 		System.out.println("1 "+ T0.toString());
 
 		//T0.join();
-
+		synchronized (this) {
 		T1.start();
+		}
 		T1.setPriority(10);
-		//T1.join();
+	//	T1.join();
 		
 		
 	//	T1.interrupt();
@@ -64,6 +69,7 @@ public class Fasada extends Thread {
 		}
 		T2.setPriority(10);
 		T2.start();
+		//T2.join();
 	//	Thread.currentThread();
 		System.out.println("Method Thread.currentThread(): " + Thread.activeCount());
 
