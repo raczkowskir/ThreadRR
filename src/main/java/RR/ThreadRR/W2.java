@@ -21,12 +21,12 @@ public class W2 extends Toll {
 				mySleep(100);
 		}*/
 		
-		}
+		
 		
 		synchronized (lock) {
 		    lock.notifyAll();;
 		    System.out.println("???????????");
-		}
+		}}
 		System.out.println("\nKoniec watku 2.");
 		
 	}

@@ -17,7 +17,7 @@ public class W1 extends Toll {
 			System.out.print("b" + Toll.getMyNumber(1));
 
 			licznik = i;
-			synchronized (lock) {
+			/*synchronized (lock) {
 				if (licznik == 5) {
 					try {
 						System.out.println("Prawie zatrzymano watek.");
@@ -30,7 +30,19 @@ public class W1 extends Toll {
 					//	e.printStackTrace();
 					}
 				}
+			}*/
+			synchronized (lock) {
+				
+					try {
+						System.out.println("W1 try wait START.");
+						lock.wait();
+						System.out.println("W1 try wait DONE.");
+					} catch (InterruptedException e) {
+						System.out.println("W1 try wait FAIL.");
+					
+				}
 			}
+			
 			/*
 			 * if (licznik==5){ System.out.println("Uśpiono watek 0.");
 			 * 
