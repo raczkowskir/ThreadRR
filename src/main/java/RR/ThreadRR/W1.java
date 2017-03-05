@@ -5,56 +5,38 @@ public class W1 extends Toll {
 
 	@Override
 	public void run() {
-		//tworzymy nasz monitor
+		//pozyskujemy referencje monitora
 		SingletonLock lock = SingletonLock.getS();
 		lock.licznik++;
 		System.out.println("licznik = "+lock.licznik);
-		// Toll.setMyNumber(1);
-		for (int i = 0; i < 50; i++) {
+		//blokujemy monitor
+		synchronized (lock) {
+			
+			try {
+				System.out.println("W1 try wait START.");
+				lock.wait();
+				System.out.println("W1 try wait DONE.");
+			} catch (InterruptedException e) {
+				System.out.println("W1 try wait FAIL.");
+			
+		}
+	}
+		for (int i = 0; i <10; i++) {
 
 			// uzywamy statycznej metody klasy Toll zeby zwrocic wartosc pola
 			// tej klasy
-			System.out.print("b" + Toll.getMyNumber(1));
-
+			//System.out.print("b" + Toll.getMyNumber(1));
+			System.out.println("b"+i);
 			licznik = i;
-			/*synchronized (lock) {
-				if (licznik == 5) {
-					try {
-						System.out.println("Prawie zatrzymano watek.");
-						lock.wait();
 
-						System.out.println("Całkiem zatrzymano watek.");
-					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
-						System.out.println("Wysypal sie wait w W1.");
-					//	e.printStackTrace();
-					}
-				}
-			}*/
-			synchronized (lock) {
-				
-					try {
-						System.out.println("W1 try wait START.");
-						lock.wait();
-						System.out.println("W1 try wait DONE.");
-					} catch (InterruptedException e) {
-						System.out.println("W1 try wait FAIL.");
-					
-				}
-			}
 			
-			/*
-			 * if (licznik==5){ System.out.println("Uśpiono watek 0.");
-			 * 
-			 * } if (licznik==15){ System.out.println("Wybudzpno watek 0.");
-			 * mySleep(100); }
-			 */
-			// experymenty z YIELD
-			/*
-			 * if (licznik ==4){ Thread.currentThread().yield();
-			 * System.out.println(" Oddano procesor"); }
-			 */
 
+		}
+		synchronized (lock) {
+			if (licznik == 9) {
+				// metoda zwalniajaca monitor
+				lock.notifyAll();
+			}
 		}
 		System.out.println("\nKoniec watku 1.");
 

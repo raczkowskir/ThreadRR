@@ -1,5 +1,5 @@
 package RR.ThreadRR;
-
+//klasa do przecwiczenia synchronizacji
 public class Fred {
 	
 	//metoda main projektu

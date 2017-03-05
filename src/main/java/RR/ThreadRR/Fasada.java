@@ -19,20 +19,6 @@ public class Fasada extends Thread {
 	Thread T1 = new Thread(R1);
 	Thread T2 = new Thread(R2);
 	
-	
-	
-	//try to adjust it!!!!!!!!!!!!!
-	synchronized void myWait(){
-		
-		System.out.println();
-		try{
-			T0.wait();
-			}
-			catch(InterruptedException E){
-				System.out.println("cos sie zadzialo "+E.hashCode());
-			}
-	}
-	
 
 	public void go() throws InterruptedException, IllegalMonitorStateException{
 		
@@ -46,7 +32,6 @@ public class Fasada extends Thread {
 		// potem oddal procesor nastepnemu watkowi
 		
 		System.out.println("1 "+ T0.getId()+" "+T0.getState());
-		//T0.sleep(3000);
 		T0.setPriority(1);
 		
 		System.out.println("1 "+ T0.toString());
@@ -58,8 +43,6 @@ public class Fasada extends Thread {
 		T1.setPriority(10);
 	//	T1.join();
 		
-		
-	//	T1.interrupt();
 		// ustawienie watku jako Demona sprawilo ze zostal on zakonczony zaraz
 		// po rozpoczeciu
 		try {
@@ -70,11 +53,7 @@ public class Fasada extends Thread {
 		T2.setPriority(10);
 		T2.start();
 		//T2.join();
-	//	Thread.currentThread();
 		System.out.println("Method Thread.currentThread(): " + Thread.activeCount());
-
-		
-//		System.out.println("6 "+ T0.isAlive());
 		
 		System.out.println("1 "+ T0.toString());
 		System.out.println("2 "+ T1.toString());
